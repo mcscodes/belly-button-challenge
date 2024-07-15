@@ -3,10 +3,10 @@ function buildMetadata(sample) {
   d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
 
     // get the metadata field
-    var metadata = data.metadata
+    var metadata = data.metadata;
 
     // Filter the metadata for the object with the desired sample number
-    var resultArray = metadata.filter (obj => obj.id == sample);
+    var resultArray = metadata.filter(obj => obj.id == sample);
 
     // Use d3 to select the panel with id of `#sample-metadata`
     var panel = d3.select("#sample-metadata");
@@ -20,6 +20,7 @@ function buildMetadata(sample) {
       Object.entries(obj).forEach(([key, value]) => {
         panel.append("p").text(`${key}: ${value}`);
       });
+    });
   });
 }
 
